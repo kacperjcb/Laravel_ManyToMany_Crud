@@ -9,6 +9,7 @@
         <tr>
             <th>ID</th>
             <th>Nazwa</th>
+            <th>Książki</th>
             <th>Akcje</th>
         </tr>
         </thead>
@@ -17,6 +18,14 @@
             <tr>
                 <td>{{ $author->id }}</td>
                 <td>{{ $author->name }}</td>
+                <td>
+                    @foreach ($author->books as $book)
+                        <a href="{{ route('books.show', $book->id) }}">{{ $book->title }}</a>
+                        @if (!$loop->last)
+                            ,
+                        @endif
+                    @endforeach
+                </td>
                 <td>
                     <a href="{{ route('authors.show', $author->id) }}" class="btn btn-info">Szczegóły</a>
                     <a href="{{ route('authors.edit', $author->id) }}" class="btn btn-warning">Edytuj</a>

@@ -31,7 +31,9 @@ class AuthorController extends Controller
 
     public function show(Author $author)
     {
-        return view('authors.show', compact('author'));
+        $books = $author->books;
+
+        return view('authors.show', compact('author', 'books'));
     }
 
     public function edit(Author $author)

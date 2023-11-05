@@ -20,7 +20,7 @@
                 <td>{{ $book->title }}</td>
                 <td>
                     @foreach ($book->authors as $author)
-                        {{ $author->name }}
+                        <a href="{{ route('authors.show', $author->id) }}">{{ $author->name }}</a>
                         @if (!$loop->last)
                             ,
                         @endif

@@ -9,6 +9,10 @@
             <input type="text" name="title" class="form-control" required>
         </div>
         <div class="form-group">
+            <label for="release_date">Data wydania:</label>
+            <input type="date" name="release_date" class="form-control" required>
+        </div>
+        <div class="form-group">
             <label for="authors">Autorzy:</label>
             <select name="authors[]" class="form-control" multiple required>
                 @foreach ($authors as $author)

@@ -24,10 +24,15 @@ class BookController extends Controller
     {
         $request->validate([
             'title' => 'required',
+            'release_date'=>'required',
             'authors' => 'required|array',
         ]);
 
-        $book = Book::create(['title' => $request->input('title')]);
+        $book = Book::create([
+            'title' => $request->input('title'),
+            'release_date' => $request->input('release_date'),
+            ]);
+
         $book->authors()->attach($request->input('authors'));
 
         return redirect()->route('books.index')->with('success', 'Książka została dodana.');
